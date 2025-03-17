@@ -47,8 +47,8 @@ import { AuthGuard } from './core/auth/guards/auth.guard';
     JwtModule.forRoot({
       config: {
         tokenGetter: tokenGetter,
-        allowedDomains: ["localhost:44395"],
-        disallowedRoutes: [],
+        //allowedDomains: ["localhost:44395"],
+        //disallowedRoutes: [],
       },
     }),
   ],
