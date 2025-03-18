@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
@@ -12,9 +12,9 @@ import { AuthService } from '../services/auth.service';
 export class LoginComponent implements OnInit {
 
   hide: boolean = true;
-  loginForm: FormGroup;
+  loginForm: UntypedFormGroup;
   forgotPasswordLoader: boolean = false;
-  constructor(private fb: FormBuilder, private router: Router, private authService:AuthService,private _snackbar:MatSnackBar) {
+  constructor(private fb: UntypedFormBuilder, private router: Router, private authService:AuthService,private _snackbar:MatSnackBar) {
   }
 
   ngOnInit() {    

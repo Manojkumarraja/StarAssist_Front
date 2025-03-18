@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { actionConstants } from 'src/app/shared/constants/common-constants';
 import { IApiResponse } from 'src/app/shared/Interfaces/IApiResponse';
@@ -17,8 +17,8 @@ export class CustomerActionsModalComponent implements OnInit {
 
   CustomerActionsformValues:Icustomer={}
   modalType:string;
-  form:FormGroup;
-  constructor(private formBuilder : FormBuilder,@Inject(MAT_DIALOG_DATA) data,private customerService:CustomersService,private dialog:MatDialog,private customerActionModalRef:MatDialogRef<CustomerActionsModalComponent>) {
+  form:UntypedFormGroup;
+  constructor(private formBuilder : UntypedFormBuilder,@Inject(MAT_DIALOG_DATA) data,private customerService:CustomersService,private dialog:MatDialog,private customerActionModalRef:MatDialogRef<CustomerActionsModalComponent>) {
 
     this.CustomerActionsformValues = data.data;
     this.modalType = data.type;

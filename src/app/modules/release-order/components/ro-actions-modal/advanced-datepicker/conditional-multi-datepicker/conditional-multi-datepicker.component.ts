@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, FormControl, Validators } from '@angular/forms';
 import { AdvancedDatepickerService } from 'src/app/modules/release-order/services/advanced-datepicker.service';
 import { customMethods } from 'src/app/shared/methods/shared-methods';
 import * as dayjs from 'dayjs';
@@ -11,12 +11,12 @@ import * as dayjs from 'dayjs';
 })
 export class ConditionalMultiDatepickerComponent implements OnInit {
 
-  DateRangeFormGroup: FormGroup;
-  logicFormGroup: FormGroup;
+  DateRangeFormGroup: UntypedFormGroup;
+  logicFormGroup: UntypedFormGroup;
   isOptionalStep: Boolean = true;
   daysOfWeek:string[] = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
   types:string[] = ['All','Alternate','First','Second','Third','Fourth'];
-  constructor(private _formBuilder: FormBuilder,private selectedDaysService:AdvancedDatepickerService) { }
+  constructor(private _formBuilder: UntypedFormBuilder,private selectedDaysService:AdvancedDatepickerService) { }
 
   ngOnInit(): void {
     this.DateRangeFormGroup = this._formBuilder.group({

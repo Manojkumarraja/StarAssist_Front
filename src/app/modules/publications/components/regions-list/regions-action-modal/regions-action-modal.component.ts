@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
@@ -9,11 +9,11 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class RegionsActionModalComponent implements OnInit {
 
-  constructor(private formBuilder : FormBuilder,@Inject(MAT_DIALOG_DATA) data) { 
+  constructor(private formBuilder : UntypedFormBuilder,@Inject(MAT_DIALOG_DATA) data) { 
     this.modalType = data.type;
     this.modalData = data.data;
   }
-  form:FormGroup;
+  form:UntypedFormGroup;
   modalType:string;
   modalData:any;
   ngOnInit(): void {

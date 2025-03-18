@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { ImageUploadComponent } from 'src/app/shared/components/image-upload/image-upload.component';
 import { actionConstants } from 'src/app/shared/constants/common-constants';
@@ -17,12 +17,12 @@ import { PublicationsService } from '../../../services/publications.service';
 export class PublicationActionsModalComponent implements OnInit {
 modalType:string;
 data:IPublication=null;
-  constructor(private formBuilder : FormBuilder,@Inject(MAT_DIALOG_DATA) data,private publicationsService:PublicationsService,private dialog:MatDialog,private publicationsActionModalRef:MatDialogRef<PublicationActionsModalComponent>) { 
+  constructor(private formBuilder : UntypedFormBuilder,@Inject(MAT_DIALOG_DATA) data,private publicationsService:PublicationsService,private dialog:MatDialog,private publicationsActionModalRef:MatDialogRef<PublicationActionsModalComponent>) { 
     this.modalType=data.type;
     this.data=data.data;
   }
 
-  form:FormGroup;
+  form:UntypedFormGroup;
   uploadedImage:IuploadedImage;
   ngOnInit(): void {
     this.setupForm()

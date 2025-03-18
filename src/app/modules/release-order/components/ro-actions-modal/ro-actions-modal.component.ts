@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { forkJoin } from 'rxjs';
 import { CustomersService } from 'src/app/modules/customers/services/customers.service';
@@ -19,12 +19,12 @@ export class RoActionsModalComponent implements OnInit {
 
   modalType:string;
   roFormValues:IReleaseOrder=null;
-  form:FormGroup;
+  form:UntypedFormGroup;
   customerList:any;
   publicationList:any;
   regionList:any;
   selectedDates:any[] = [];
-  constructor(private formBuilder : FormBuilder,@Inject(MAT_DIALOG_DATA) data,private releaseOrderService:ReleaseOrderService,private dialog:MatDialog,private roActionsModalRef:MatDialogRef<RoActionsModalComponent>,private customerService:CustomersService,private publicationService:PublicationsService,private regionService:RegionsService,private selectedDatesService:AdvancedDatepickerService) { 
+  constructor(private formBuilder : UntypedFormBuilder,@Inject(MAT_DIALOG_DATA) data,private releaseOrderService:ReleaseOrderService,private dialog:MatDialog,private roActionsModalRef:MatDialogRef<RoActionsModalComponent>,private customerService:CustomersService,private publicationService:PublicationsService,private regionService:RegionsService,private selectedDatesService:AdvancedDatepickerService) { 
     this.modalType=data.type;
     this.roFormValues=data.data;
     console.log('data',this.roFormValues);
