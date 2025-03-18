@@ -1,4 +1,3 @@
-import { analyzeAndValidateNgModules, DYNAMIC_TYPE, ElementSchemaRegistry } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { IApiResponse } from 'src/app/shared/Interfaces/IApiResponse';
