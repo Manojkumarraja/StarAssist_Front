@@ -12,7 +12,7 @@ import { MatListModule } from '@angular/material/list';
 import { LayoutContainerComponent } from './shared/modules/layout/layout-container/layout-container.component';
 import { HeaderComponent } from './shared/modules/layout/header/header.component';
 import { FooterComponent } from './shared/modules/layout/footer/footer.component';
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { SharedImportsModule } from 'src/app/shared/modules/shared-imports/shared-imports.module';
 import { ConfirmationAlertComponent } from './shared/modules/alerts/confirmation-alert/confirmation-alert.component';
@@ -20,41 +20,34 @@ import { SuccessAlertComponent } from './shared/modules/alerts/success-alert/suc
 import { ErrorAlertComponent } from './shared/modules/alerts/error-alert/error-alert.component';
 import { JwtModule } from '@auth0/angular-jwt';
 import { AuthGuard } from './core/auth/guards/auth.guard';
-@NgModule({
-  declarations: [
-    AppComponent,
-    SidebarComponent,
-    LayoutContainerComponent,
-    HeaderComponent,
-    FooterComponent,
-    ConfirmationAlertComponent,
-    SuccessAlertComponent,
-    ErrorAlertComponent,
-  ],
-  imports: [
-    FormsModule,
-    ReactiveFormsModule,
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    LayoutModule,    
-    MatToolbarModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    HttpClientModule,
-    SharedImportsModule,
-    JwtModule.forRoot({
-      config: {
-        tokenGetter: tokenGetter,
-        //allowedDomains: ["localhost:44395"],
-        //disallowedRoutes: [],
-      },
-    }),
-  ],
-  providers: [AuthGuard],
-  bootstrap: [AppComponent],
-})
+@NgModule({ declarations: [
+        AppComponent,
+        SidebarComponent,
+        LayoutContainerComponent,
+        HeaderComponent,
+        FooterComponent,
+        ConfirmationAlertComponent,
+        SuccessAlertComponent,
+        ErrorAlertComponent,
+    ],
+    bootstrap: [AppComponent], imports: [FormsModule,
+        ReactiveFormsModule,
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        SharedImportsModule,
+        JwtModule.forRoot({
+            config: {
+                tokenGetter: tokenGetter,
+                //allowedDomains: ["localhost:44395"],
+                //disallowedRoutes: [],
+            },
+        })], providers: [AuthGuard, provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
 export function tokenGetter() {
   return localStorage.getItem("jwt");

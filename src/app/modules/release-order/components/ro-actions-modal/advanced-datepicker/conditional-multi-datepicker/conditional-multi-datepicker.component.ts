@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UntypedFormGroup, UntypedFormBuilder, FormControl, Validators } from '@angular/forms';
 import { AdvancedDatepickerService } from 'src/app/modules/release-order/services/advanced-datepicker.service';
 import { customMethods } from 'src/app/shared/methods/shared-methods';
-import * as dayjs from 'dayjs';
+import  dayjs from 'dayjs';
 
 @Component({
   selector: 'app-conditional-multi-datepicker',
