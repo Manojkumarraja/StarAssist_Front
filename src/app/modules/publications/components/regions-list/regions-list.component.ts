@@ -7,9 +7,10 @@ import { RegionsService } from '../../services/regions.service';
 import { RegionsActionModalComponent } from './regions-action-modal/regions-action-modal.component';
 
 @Component({
-  selector: 'app-regions-list',
-  templateUrl: './regions-list.component.html',
-  styleUrls: ['./regions-list.component.scss']
+    selector: 'app-regions-list',
+    templateUrl: './regions-list.component.html',
+    styleUrls: ['./regions-list.component.scss'],
+    standalone: false
 })
 export class RegionsListComponent implements OnInit {
 

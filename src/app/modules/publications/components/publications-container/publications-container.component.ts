@@ -6,9 +6,10 @@ import { PublicationsListComponent } from '../publications-list/publications-lis
 import { RegionsListComponent } from '../regions-list/regions-list.component';
 
 @Component({
-  selector: 'app-publications-container',
-  templateUrl: './publications-container.component.html',
-  styleUrls: ['./publications-container.component.scss']
+    selector: 'app-publications-container',
+    templateUrl: './publications-container.component.html',
+    styleUrls: ['./publications-container.component.scss'],
+    standalone: false
 })
 export class PublicationsContainerComponent implements OnInit {
 

@@ -10,9 +10,10 @@ import { Inject } from '@angular/core';
 import { PublicationActionsModalComponent } from './publication-actions-modal/publication-actions-modal.component';
 import { actionConstants } from 'src/app/shared/constants/common-constants';
 @Component({
-  selector: 'app-publications-list',
-  templateUrl: './publications-list.component.html',
-  styleUrls: ['./publications-list.component.scss']
+    selector: 'app-publications-list',
+    templateUrl: './publications-list.component.html',
+    styleUrls: ['./publications-list.component.scss'],
+    standalone: false
 })
 export class PublicationsListComponent implements OnInit {
 

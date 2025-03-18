@@ -5,10 +5,11 @@ import { AdvancedDatepickerService } from 'src/app/modules/release-order/service
 import { AdvancedDatepickerComponent } from '../advanced-datepicker.component';
 
 @Component({
-  selector: 'app-manual-multi-datepicker',
-  templateUrl: './manual-multi-datepicker.component.html',
-  styleUrls: ['./manual-multi-datepicker.component.scss'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'app-manual-multi-datepicker',
+    templateUrl: './manual-multi-datepicker.component.html',
+    styleUrls: ['./manual-multi-datepicker.component.scss'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class ManualMultiDatepickerComponent implements OnInit {
 

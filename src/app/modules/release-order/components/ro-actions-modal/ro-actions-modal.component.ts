@@ -11,9 +11,10 @@ import { ReleaseOrderService } from '../../services/release-order.service';
 import { AdvancedDatepickerComponent } from './advanced-datepicker/advanced-datepicker.component';
 
 @Component({
-  selector: 'app-ro-actions-modal',
-  templateUrl: './ro-actions-modal.component.html',
-  styleUrls: ['./ro-actions-modal.component.scss']
+    selector: 'app-ro-actions-modal',
+    templateUrl: './ro-actions-modal.component.html',
+    styleUrls: ['./ro-actions-modal.component.scss'],
+    standalone: false
 })
 export class RoActionsModalComponent implements OnInit {
 

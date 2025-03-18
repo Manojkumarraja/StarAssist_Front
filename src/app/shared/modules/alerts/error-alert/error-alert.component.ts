@@ -3,9 +3,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { SuccessAlertComponent } from '../success-alert/success-alert.component';
 
 @Component({
-  selector: 'app-error-alert',
-  templateUrl: './error-alert.component.html',
-  styleUrls: ['./error-alert.component.scss']
+    selector: 'app-error-alert',
+    templateUrl: './error-alert.component.html',
+    styleUrls: ['./error-alert.component.scss'],
+    standalone: false
 })
 export class ErrorAlertComponent implements OnInit {
 

@@ -3,9 +3,10 @@ import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
-  selector: 'app-regions-action-modal',
-  templateUrl: './regions-action-modal.component.html',
-  styleUrls: ['./regions-action-modal.component.scss']
+    selector: 'app-regions-action-modal',
+    templateUrl: './regions-action-modal.component.html',
+    styleUrls: ['./regions-action-modal.component.scss'],
+    standalone: false
 })
 export class RegionsActionModalComponent implements OnInit {
 

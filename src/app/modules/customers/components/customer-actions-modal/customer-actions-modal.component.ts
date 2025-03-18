@@ -9,9 +9,10 @@ import { CustomerMultipleFields } from '../../constants/constants';
 import { Icustomer } from '../../interfaces/customers';
 import { CustomersService } from '../../services/customers.service';
 @Component({
-  selector: 'app-customer-actions-modal',
-  templateUrl: './customer-actions-modal.component.html',
-  styleUrls: ['./customer-actions-modal.component.scss']
+    selector: 'app-customer-actions-modal',
+    templateUrl: './customer-actions-modal.component.html',
+    styleUrls: ['./customer-actions-modal.component.scss'],
+    standalone: false
 })
 export class CustomerActionsModalComponent implements OnInit {
 

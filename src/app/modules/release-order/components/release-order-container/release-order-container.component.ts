@@ -11,9 +11,10 @@ import { RoActionsModalComponent } from '../ro-actions-modal/ro-actions-modal.co
 import { actionConstants } from 'src/app/shared/constants/common-constants';
 
 @Component({
-  selector: 'app-release-order-container',
-  templateUrl: './release-order-container.component.html',
-  styleUrls: ['./release-order-container.component.scss']
+    selector: 'app-release-order-container',
+    templateUrl: './release-order-container.component.html',
+    styleUrls: ['./release-order-container.component.scss'],
+    standalone: false
 })
 export class ReleaseOrderContainerComponent implements OnInit {
 

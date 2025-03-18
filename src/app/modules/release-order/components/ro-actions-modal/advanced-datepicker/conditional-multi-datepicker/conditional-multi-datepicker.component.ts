@@ -5,9 +5,10 @@ import { customMethods } from 'src/app/shared/methods/shared-methods';
 import  dayjs from 'dayjs';
 
 @Component({
-  selector: 'app-conditional-multi-datepicker',
-  templateUrl: './conditional-multi-datepicker.component.html',
-  styleUrls: ['./conditional-multi-datepicker.component.scss']
+    selector: 'app-conditional-multi-datepicker',
+    templateUrl: './conditional-multi-datepicker.component.html',
+    styleUrls: ['./conditional-multi-datepicker.component.scss'],
+    standalone: false
 })
 export class ConditionalMultiDatepickerComponent implements OnInit {
 

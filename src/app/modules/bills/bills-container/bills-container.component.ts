@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-bills-container',
-  templateUrl: './bills-container.component.html',
-  styleUrls: ['./bills-container.component.scss']
+    selector: 'app-bills-container',
+    templateUrl: './bills-container.component.html',
+    styleUrls: ['./bills-container.component.scss'],
+    standalone: false
 })
 export class BillsContainerComponent implements OnInit {
 

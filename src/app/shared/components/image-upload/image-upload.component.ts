@@ -3,17 +3,18 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
-  selector: 'app-image-upload',
-  templateUrl: './image-upload.component.html',
-  styleUrls: ['./image-upload.component.scss'],
-  animations: [
-    trigger('fadeInOut', [
-          state('in', style({ opacity: 100 })),
-          transition('* => void', [
+    selector: 'app-image-upload',
+    templateUrl: './image-upload.component.html',
+    styleUrls: ['./image-upload.component.scss'],
+    animations: [
+        trigger('fadeInOut', [
+            state('in', style({ opacity: 100 })),
+            transition('* => void', [
                 animate(300, style({ opacity: 0 }))
-          ])
-    ])
-]
+            ])
+        ])
+    ],
+    standalone: false
 })
 export class ImageUploadComponent implements OnInit {
 

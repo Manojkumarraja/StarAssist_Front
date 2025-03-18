@@ -11,9 +11,10 @@ import { CustomerMultipleFields } from '../../constants/constants';
 import { actionConstants } from 'src/app/shared/constants/common-constants';
 
 @Component({
-  selector: 'app-customers-container',
-  templateUrl: './customers-container.component.html',
-  styleUrls: ['./customers-container.component.scss']
+    selector: 'app-customers-container',
+    templateUrl: './customers-container.component.html',
+    styleUrls: ['./customers-container.component.scss'],
+    standalone: false
 })
 export class CustomersContainerComponent implements OnInit{
 

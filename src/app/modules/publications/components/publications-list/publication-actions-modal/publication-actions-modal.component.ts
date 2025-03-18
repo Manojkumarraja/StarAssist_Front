@@ -10,9 +10,10 @@ import { IPublication, IPublicationCreation, IuploadedImage } from '../../../int
 import { PublicationsService } from '../../../services/publications.service';
 
 @Component({
-  selector: 'app-publication-actions-modal',
-  templateUrl: './publication-actions-modal.component.html',
-  styleUrls: ['./publication-actions-modal.component.scss']
+    selector: 'app-publication-actions-modal',
+    templateUrl: './publication-actions-modal.component.html',
+    styleUrls: ['./publication-actions-modal.component.scss'],
+    standalone: false
 })
 export class PublicationActionsModalComponent implements OnInit {
 modalType:string;

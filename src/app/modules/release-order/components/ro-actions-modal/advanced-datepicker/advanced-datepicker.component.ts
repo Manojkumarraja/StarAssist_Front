@@ -3,9 +3,10 @@ import { MatDialogRef } from '@angular/material/dialog';
 import { AdvancedDatepickerService } from '../../../services/advanced-datepicker.service';
 
 @Component({
-  selector: 'app-advanced-datepicker',
-  templateUrl: './advanced-datepicker.component.html',
-  styleUrls: ['./advanced-datepicker.component.scss']
+    selector: 'app-advanced-datepicker',
+    templateUrl: './advanced-datepicker.component.html',
+    styleUrls: ['./advanced-datepicker.component.scss'],
+    standalone: false
 })
 export class AdvancedDatepickerComponent implements OnInit {
 
