@@ -135,9 +135,9 @@
         </div>
 
         <div class="grid-item-date blue-border-box" *ngIf="selectedDates.length > 1">
-            <mat-chip-list #chipList aria-label="date selection" style="max-height: 90px; max-width: 360px;  overflow-y: scroll; overflow-x: hidden;">
+            <mat-chip-listbox #chipList aria-label="date selection" style="max-height: 90px; max-width: 360px;  overflow-y: scroll; overflow-x: hidden;">
               <mat-chip *ngFor="let date of selectedDates">{{date}} </mat-chip>
-            </mat-chip-list>
+            </mat-chip-listbox>
             <button mat-raised-button type="button" color="primary" (click)="OpenAdvancedDatePicker()">Advanced</button>
         </div>
 
