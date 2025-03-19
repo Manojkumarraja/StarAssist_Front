@@ -104,32 +104,30 @@
           }
         },
         "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
+          "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "StarAssist:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "StarAssist:serve:production"
-            }
-          }
+          "outputPath": "dist/e2e",
+          "index": "src/index.html",
+          "main": "src/main.ts",
+          "polyfills": "src/polyfills.ts",
+          "tsConfig": "tsconfig.json"
         },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "src/**/*.ts",
-              "src/**/*.html"
-            ]
+        "configurations": {
+          "production": {
+            "optimization": true,
+            "outputHashing": "all",
+            "sourceMap": false,
+            "namedChunks": false,
+            "aot": true,
+            "buildOptimizer": true
           }
         }
       }
     }
   },
   "cli": {
-    "schematicCollections": [
-      "angular-eslint"
-    ]
+    "root": "",
+    "projectType": "application"
   }
+}
 }
