@@ -98,14 +98,17 @@ export class CustomersContainerComponent implements OnInit{
     })
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        this.customerService.deleteCustomer(customer.id).subscribe((res)=>{
+        this.customerService.deleteCustomer(customer.id).subscribe({
+          next:(res)=>{
           isDeleted = res.result;
-        },()=>{},
+        },
+        complete:
         ()=>{
           if(isDeleted){
             this.getCustomersList();
           }
-        })
+        }
+      });
         
       }
     })
@@ -113,17 +116,19 @@ export class CustomersContainerComponent implements OnInit{
   
   // api call functions
   getCustomersList(){
-    this.customerService.getCustomersList().subscribe((res)=>{      
+    this.customerService.getCustomersList().subscribe({
+      next:(res)=>{      
       this.customers = res.result;
     },
-    ()=>{},
+    complete:
     ()=>{
       for(let i=0;i<this.customers.length;i++){
         this.customers[i] = customMethods.reduceToPrimary(this.customers[i],CustomerMultipleFields.fields);
       }
       this.dataSource = new MatTableDataSource(this.customers);
       this.dataSource.paginator = this.paginator;
-    })
+    }
+  });
   }
 
 

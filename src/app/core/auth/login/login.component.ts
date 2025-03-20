@@ -38,12 +38,13 @@ export class LoginComponent implements OnInit {
       Username:this.loginForm.value?.email,
       Password:this.loginForm.value?.password
     }
-      this.authService.getLoggedInUserDetails(postObj).subscribe(response => {
+      this.authService.getLoggedInUserDetails(postObj).subscribe({
+        next : (response) => {
         const token = (<any>response).token;
         localStorage.setItem("jwt", token);
         
         this.router.navigate(["/dashboard"]);
-      }, err => {
+      }, error: (err) => {
         console.log(err)
         if(err.status == 401){
           this._snackbar.open("Invalid credentials","Try Again")
@@ -52,7 +53,8 @@ export class LoginComponent implements OnInit {
           this._snackbar.open("Error Occured","Try Again")
         }
         
-      });
+      }
+  });
   }
   ForgotPassword(){
 
@@ -62,7 +64,8 @@ export class LoginComponent implements OnInit {
         Password:this.loginForm.value?.password
       }
       this.forgotPasswordLoader = true;
-      this.authService.forgotPassword(postObj).subscribe(response => {
+      this.authService.forgotPassword(postObj).subscribe({
+        next: (response) => {
         this.forgotPasswordLoader = false;
         if(response){
           this._snackbar.open("Please check your mail","Ok")
@@ -70,9 +73,11 @@ export class LoginComponent implements OnInit {
         else{
           this._snackbar.open("Account Not Found","Ok")
         }
-      },(err)=>{
+      },
+      error:(err)=>{
         this._snackbar.open("Error Occured","Try again")
-      })
+      }
+    });
 
     }
     

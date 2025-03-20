@@ -55,10 +55,12 @@ export class CustomerActionsModalComponent implements OnInit {
   }
   callCreateCustomer_api(customerObj:Icustomer){
     let apiResult:IApiResponse;
-    this.customerService.createCustomer(customerObj).subscribe((res:IApiResponse)=>{
+    this.customerService.createCustomer(customerObj).subscribe({
+      next:(res:IApiResponse)=>{
       console.log(res);
       apiResult = res;
-    },()=>{},()=>{
+    },
+    complete:()=>{
       if(apiResult.statusCode === 1){
         let dialogRef = this.dialog.open(SuccessAlertComponent,{
           width:'350px',
@@ -67,22 +69,27 @@ export class CustomerActionsModalComponent implements OnInit {
             text:apiResult.message
           }
         })
-        dialogRef.afterClosed().subscribe(result=>{
+        dialogRef.afterClosed().subscribe({
+          next:(result)=>{
           if(result){
             console.log(result);
             this.customerActionModalRef.close(result);
           }
-        })
+        }
+      })
       }
-    });
+    }
+  });
   }
   callEditCustomer_api(customerObj:Icustomer){
     let apiResult:IApiResponse;
     customerObj.id = this.CustomerActionsformValues.id;
-    this.customerService.updateCustomer(customerObj).subscribe((res:IApiResponse)=>{
+    this.customerService.updateCustomer(customerObj).subscribe({
+      next: (res:IApiResponse)=>{
       console.log(res);
       apiResult = res;
-    },()=>{},()=>{
+    },
+    complete: ()=>{
       if(apiResult.statusCode === 1){
         let dialogRef = this.dialog.open(SuccessAlertComponent,{
           width:'350px',
@@ -91,13 +98,16 @@ export class CustomerActionsModalComponent implements OnInit {
             text:apiResult.message
           }
         })
-        dialogRef.afterClosed().subscribe(result=>{
+        dialogRef.afterClosed().subscribe({
+          next: (result) => {
           if(result){
             console.log(result);
             this.customerActionModalRef.close(result);
           }
-        })
+        }
+      })
       }
-    });
+    }
+  });
   }
 }

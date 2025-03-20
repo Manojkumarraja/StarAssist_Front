@@ -27,14 +27,15 @@ export class PublicationsListComponent implements OnInit {
     let calls=[
       this.publicationsService.getPublicationsList()
     ];
-    forkJoin(calls).subscribe((resp:IApiResponse[])=>{
+    forkJoin(calls).subscribe({
+      next:(resp:IApiResponse[])=>{
       this.publications = resp[0].result.map(rec=>{
         rec.publicationLogo = 'data:image/jpg;base64,'+rec.publicationLogo;
         return rec;
       });
-    },err=>{
+    },error: (err)=>{
       console.log(err);
-    })
+    }});
   }
   onEdit(publication)
   {
@@ -44,7 +45,8 @@ export class PublicationsListComponent implements OnInit {
       data:{type:actionConstants.edit,data:publication }
 
     })
-    dialogRef.afterClosed().subscribe((res)=>{
+    dialogRef.afterClosed().subscribe({
+      next: (res)=>{
       if(res?.result)
       {
         let successdialogref=this.dialog.open(SuccessAlertComponent,{
@@ -56,7 +58,8 @@ export class PublicationsListComponent implements OnInit {
         })
         this.ResolveData();
       }
-    })
+    }
+  });
   }
  onDelete(publication)
  {
@@ -67,7 +70,8 @@ export class PublicationsListComponent implements OnInit {
       text:"Are you sure want to Delete publication: "+publication.publicationName +"?"
     }
   });
-dialogref.afterClosed().subscribe(result=>{
+dialogref.afterClosed().subscribe({
+  next: (result)=>{
   if(result)
   {
   this.publicationsService.deletePublication(publication.publicationId).subscribe((res:IApiResponse)=>
@@ -100,7 +104,7 @@ dialogref.afterClosed().subscribe(result=>{
  {
 return;
  }
-  })
+  }});
 }
 
 }

@@ -25,13 +25,15 @@ export class RegionsListComponent implements OnInit {
     this.regionsFiltered = this.regions.filter(rec =>rec.regionName.toLowerCase().includes(event.target.value.toLowerCase()));
   }
   getRegions(){
-    this._regionsService.getRegionsList().subscribe((res)=>{
+    this._regionsService.getRegionsList().subscribe({
+      next:(res)=>{
       this.regions = res.result;
       this.regionsFiltered = res.result;
-    },err=>{
+    },
+    error:(err)=>{
 
-    })
-  }
+    }});
+}
   addRegionClicked(){
     let modelRef = this._modalService.open(RegionsActionModalComponent,{
       height:"170px",
@@ -64,14 +66,16 @@ export class RegionsListComponent implements OnInit {
           RegionID:region.regionID,
           RegionName:res.RegionName
         }
-        this._regionsService.updateRegion(postObj).subscribe(res=>{
+        this._regionsService.updateRegion(postObj).subscribe({
+          next:(res)=>{
           console.log(res)
         },
-        err=>{
+        error:(err)=>{
           
-        },()=>{
+        },
+        complete:()=>{
           this.getRegions();
-        })
+        }});
         console.log(postObj)
       }
       else{
@@ -91,12 +95,15 @@ export class RegionsListComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        this._regionsService.deleteRegion(region.regionID).subscribe((res)=>{
+        this._regionsService.deleteRegion(region.regionID).subscribe({
+          next: (res)=>{
           console.log(res);
-        },err=>{},
-        ()=>{
+        },
+        error: (err)=>{},
+        complete:()=>{
           this.getRegions();
-        })
+        }
+      });
       }
     })
     
@@ -106,11 +113,13 @@ export class RegionsListComponent implements OnInit {
     let postObj:IRegionCreate={
       RegionName:Region.RegionName
     }
-    this._regionsService.createRegion(postObj).subscribe((res)=>{
+    this._regionsService.createRegion(postObj).subscribe({
+      next:(res)=>{
       console.log(res);
-    },err=>{},
-    ()=>{
+    },
+    error: (err)=>{},
+    complete:()=>{
       this.getRegions();
-    })
+    }});
   }
 }

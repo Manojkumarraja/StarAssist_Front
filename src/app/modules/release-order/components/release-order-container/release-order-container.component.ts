@@ -45,14 +45,16 @@ export class ReleaseOrderContainerComponent implements OnInit {
     let calls=[
       this._releaseOrderService.getReleaseOrdersList()
     ];
-    forkJoin(calls).subscribe((resp:IApiResponse[])=>{
+    forkJoin(calls).subscribe({
+      next:(resp:IApiResponse[])=>{
       this.releaseOrders = resp[0].result;
       console.log('release orders',this.releaseOrders)
       this.dataSource = new MatTableDataSource(this.releaseOrders);
       this.dataSource.paginator = this.paginator;
-    },err=>{
+    },
+    error: err=>{
       console.log(err);
-    })
+    }});
     
   }
   onPrintRO(element){
@@ -87,14 +89,15 @@ export class ReleaseOrderContainerComponent implements OnInit {
     })
     dialogRef.afterClosed().subscribe(result=>{
       if(result){
-        this._releaseOrderService.deleteReleaseOrder(ro.roId).subscribe((res)=>{
+        this._releaseOrderService.deleteReleaseOrder(ro.roId).subscribe({
+          next:(res)=>{
           isDeleted = res.result;
-        },()=>{},
-        ()=>{
+        },
+        complete:()=>{
           if(isDeleted){
             this.ResolveData();
           }
-        })
+        }});
         
       }
     })

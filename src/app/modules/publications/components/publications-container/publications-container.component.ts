@@ -26,11 +26,12 @@ export class PublicationsContainerComponent implements OnInit {
           height:'500px',
           data:{type:actionConstants.create,data:{}}
         })
-        dialogRef.afterClosed().subscribe(res=>{
+        dialogRef.afterClosed().subscribe({
+          next: (res)=>{
           if(res){
             this.listComp.ResolveData();
           }
-        });
+        }});
   }
   openRegionModal(){
     this.dialog.open(RegionsListComponent,{
